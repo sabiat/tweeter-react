@@ -4,21 +4,21 @@ import "./Tweet.css";
 export const Tweet = (props) => {
   const { name, handle, text, profile_image, date } = props;
   return (
-    <article class="tweet">
+    <article className="tweet">
       <header>
-        <div class="left-side">
+        <div className="left-side">
           <img src={profile_image} alt="usericon" />
           <span>{name}</span>
         </div>
-        <p class="hidden-username">{handle}</p>
+        <p className="hidden-username">{handle}</p>
       </header>
-      <div class="tweet-feed">{text}</div>
+      <div className="tweet-feed">{text}</div>
       <footer>
         <p>{props.date}</p>
-        <div class="icons">
-          <i class="fas fa-flag" aria-hidden="true"></i>
-          <i class="fas fa-retweet" aria-hidden="true"></i>
-          <i class="far fa-heart" aria-hidden="true"></i>
+        <div className="icons">
+          <i className="fas fa-flag" aria-hidden="true"></i>
+          <i className="fas fa-retweet" aria-hidden="true"></i>
+          <i className="far fa-heart" aria-hidden="true"></i>
         </div>
       </footer>
     </article>
