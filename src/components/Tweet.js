@@ -1,19 +1,20 @@
 import React from "react";
 import "./Tweet.css";
 
-export const Tweet = () => {
+export const Tweet = (props) => {
+  const { name, handle, text, profile_image, date } = props;
   return (
     <article class="tweet">
       <header>
         <div class="left-side">
-          <img src="https://i.imgur.com/nlhLi3I.png" alt="usericon" />
-          <span>Descartes</span>
+          <img src={profile_image} alt="usericon" />
+          <span>{name}</span>
         </div>
-        <p class="hidden-username">@rd</p>
+        <p class="hidden-username">{handle}</p>
       </header>
-      <div class="tweet-feed">Je pense , donc je suis</div>
+      <div class="tweet-feed">{text}</div>
       <footer>
-        <p>a day ago</p>
+        <p>{props.date}</p>
         <div class="icons">
           <i class="fas fa-flag" aria-hidden="true"></i>
           <i class="fas fa-retweet" aria-hidden="true"></i>
