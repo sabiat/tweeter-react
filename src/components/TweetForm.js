@@ -3,7 +3,7 @@ import "./TweetForm.css";
 
 export const TweetForm = () => {
   return (
-    <section class="new-tweet">
+    <section className="new-tweet">
       <div class="error">
         <span id="error-text"></span>
       </div>

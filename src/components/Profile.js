@@ -3,9 +3,9 @@ import "./Profile.css";
 
 export const Profile = () => {
   return (
-    <header class="main-header">
+    <header className="main-header">
       <div>
-        <img src="/images/profile-hex.png" />
+        <img src="/profile-hex.png" />
       </div>
       <br />
       <div>
