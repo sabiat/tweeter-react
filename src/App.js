@@ -1,10 +1,11 @@
 import "./App.css";
+import { React, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { TweetForm } from "./components/TweetForm";
 import { Profile } from "./components/Profile";
 import { Tweet } from "./components/Tweet";
 
-const tweetsData = [
+const initialTweetData = [
   {
     name: "Sabia",
     handle: "@sabiat",
@@ -22,7 +23,8 @@ const tweetsData = [
 ];
 
 function App() {
-  const tweets = tweetsData.map((tweetData, index) => {
+  const [tweetData, setTweetData] = useState(initialTweetData);
+  const tweets = tweetData.map((tweetData, index) => {
     return (
       <Tweet
         key={index}
@@ -34,8 +36,20 @@ function App() {
       />
     );
   });
+
+  const addNewTweet = () => {
+    const newTweet = {
+      name: "Bob",
+      handle: "@bob",
+      profile_image: "https://i.imgur.com/nlhLi3I.png",
+      text: "hellooooo",
+      date: "15 days ago",
+    };
+
+    setTweetData([newTweet, ...tweetData]);
+  };
   return (
-    <div className="App">
+    <div className="App" onClick={addNewTweet}>
       <Navigation />
       <Profile />
       <main className="container">
