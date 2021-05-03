@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TweetForm.css";
 
 export const TweetForm = () => {
+  const [tweetText, setTweetText] = useState("");
+  const tweetRemainingLength = 140 - tweetText.length;
+  const spanStyle = { color: tweetRemainingLength >= 0 ? "black" : "red" };
+
+  const submitTweet = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <section className="new-tweet">
       <div className="error">
@@ -9,11 +17,21 @@ export const TweetForm = () => {
       </div>
       <form method="POST" action="/tweets/">
         <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
+        <textarea
+          value={tweetText}
+          onChange={(event) => setTweetText(event.target.value)}
+          name="text"
+          id="tweet-text"
+        ></textarea>
         <div className="button-counter">
           <button type="submit">Tweet</button>
-          <output name="counter" className="counter" for="tweet-text">
-            140
+          <output
+            style={spanStyle}
+            name="counter"
+            className="counter"
+            for="tweet-text"
+          >
+            {tweetRemainingLength}
           </output>
         </div>
       </form>
