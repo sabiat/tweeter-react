@@ -37,23 +37,23 @@ function App() {
     );
   });
 
-  const addNewTweet = () => {
+  const addNewTweet = (text) => {
     const newTweet = {
       name: "Bob",
       handle: "@bob",
       profile_image: "https://i.imgur.com/nlhLi3I.png",
-      text: "hellooooo",
+      text,
       date: "15 days ago",
     };
 
     setTweetData([newTweet, ...tweetData]);
   };
   return (
-    <div className="App" onClick={addNewTweet}>
+    <div className="App">
       <Navigation />
       <Profile />
       <main className="container">
-        <TweetForm />
+        <TweetForm addNewTweet={addNewTweet} />
         <section id="all-tweets">{tweets}</section>
       </main>
     </div>
